@@ -1,0 +1,22 @@
+{
+  "name": "cotersus-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/cotersus-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/cotersus-e2e"],
+      "options": {
+        "config": "apps/cotersus-e2e/playwright.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/cotersus-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "implicitDependencies": ["cotersus"]
+}
