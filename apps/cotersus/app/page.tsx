@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import logo from '../../../../cotersus/apps/cotersus/public/logo.svg';
+import logo from '../public/logo.svg';
 
 export default async function Index() {
   return (
