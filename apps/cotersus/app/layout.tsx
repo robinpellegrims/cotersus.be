@@ -1,6 +1,8 @@
 import 'tailwindcss/tailwind.css';
-import { Fjalla_One, Montserrat } from 'next/font/google';
-import Script from 'next/script';
+import './globals.css';
+import { Fjalla_One, Montserrat, Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const fjalla = Fjalla_One({
   subsets: ['latin'],
@@ -15,23 +17,95 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
-const origin = 'https://www.cotersus.be';
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+// Determine the origin URL based on the environment
+const getOriginUrl = () => {
+  // Use VERCEL_URL for preview deployments
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  // Use custom environment variable if set
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL;
+  }
+  // Default to production URL
+  return 'https://www.cotersus.be';
+};
+
+const origin = getOriginUrl();
 
 export const metadata = {
-  title: 'Cotersus IT Consulting',
+  metadataBase: new URL(origin),
+  title: {
+    default: 'Cotersus IT Consulting | Quality Software Development',
+    template: '%s | Cotersus',
+  },
   description:
-    'Cotersus is an IT Consulting company from Belgium specialized in software development.',
+    'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions. Expert in React, Angular, Next.js, and TypeScript.',
+  keywords: [
+    'IT consulting Belgium',
+    'software development',
+    'full-stack development',
+    'React development',
+    'Angular development',
+    'Next.js',
+    'TypeScript',
+    'developer coaching',
+    'Belgian tech consulting',
+    'quality software',
+  ],
+  authors: [{ name: 'Cotersus' }],
+  creator: 'Cotersus',
+  publisher: 'Cotersus',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_BE',
     url: origin,
     siteName: 'Cotersus',
-    images: [{ url: `${origin}/logo.png`, height: 508, width: 466 }],
+    title: 'Cotersus IT Consulting | Quality Software Development',
+    description:
+      'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions. Expert in React, Angular, Next.js, and TypeScript.',
+    images: [
+      {
+        url: '/logo.png', // Use relative URL so metadataBase applies
+        width: 466,
+        height: 508,
+        alt: 'Cotersus Logo',
+      },
+    ],
   },
   twitter: {
+    card: 'summary_large_image',
+    title: 'Cotersus IT Consulting | Quality Software Development',
+    description:
+      'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions.',
     creator: '@robinpel',
     site: '@cotersusIT',
-    card: 'summary_large_image',
+    images: ['/logo.png'], // Use relative URL so metadataBase applies
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: '', // Add Google Search Console verification code here
   },
 };
 
@@ -40,19 +114,59 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Cotersus',
+    url: origin,
+    logo: `${origin}/logo.png`,
+    description:
+      'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Beigemsesteenweg 387',
+      addressLocality: 'Beigem',
+      postalCode: '1852',
+      addressCountry: 'BE',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'hello@cotersus.be',
+      contactType: 'Customer Service',
+      availableLanguage: ['en', 'nl'],
+    },
+    sameAs: [
+      'https://bsky.app/profile/cotersus.be',
+      'https://x.com/CotersusIT',
+      'https://www.linkedin.com/company/88920103',
+    ],
+  };
+
   return (
-    <html lang="en" className={`${fjalla.variable} ${montserrat.variable}`}>
-      <Script
-        src="https://cdn.counter.dev/script.js"
-        data-id="b19ec735-673b-47f5-8575-7d5bc6417ab8"
-        data-utcoffset="1"
-      />
-      <body className="bg-zinc-800 text-zinc-100">
+    <html lang="en" className={`${fjalla.variable} ${montserrat.variable} ${inter.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme') ||
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.classList.add(theme);
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="bg-white text-gray-900 dark:bg-zinc-800 dark:text-zinc-100 font-inter transition-colors duration-300">
         <div className="flex min-h-screen flex-col">
-          <header className="sticky top-0"></header>
-          <main className="grow overflow-y-auto">{children}</main>
-          <footer></footer>
+          {children}
         </div>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
