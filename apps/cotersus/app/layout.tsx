@@ -23,17 +23,14 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-// Determine the origin URL based on the environment
+// For SEO metadata, always use the production URL to ensure canonical URLs
+// This prevents preview/staging URLs from being indexed by search engines
 const getOriginUrl = () => {
-  // Use VERCEL_URL for preview deployments
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
-  // Use custom environment variable if set
+  // Use custom environment variable if explicitly set
   if (process.env.NEXT_PUBLIC_SITE_URL) {
     return process.env.NEXT_PUBLIC_SITE_URL;
   }
-  // Default to production URL
+  // Always use production URL for SEO metadata
   return 'https://www.cotersus.be';
 };
 
@@ -77,7 +74,7 @@ export const metadata = {
       'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions. Expert in React, Angular, Next.js, and TypeScript.',
     images: [
       {
-        url: '/logo.png', // Use relative URL so metadataBase applies
+        url: '/logo-og.png',
         width: 466,
         height: 508,
         alt: 'Cotersus Logo',
@@ -91,7 +88,7 @@ export const metadata = {
       'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions.',
     creator: '@robinpel',
     site: '@cotersusIT',
-    images: ['/logo.png'], // Use relative URL so metadataBase applies
+    images: ['/logo-og.png'],
   },
   robots: {
     index: true,
@@ -119,7 +116,7 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'Cotersus',
     url: origin,
-    logo: `${origin}/logo.png`,
+    logo: `${origin}/logo-og.png`,
     description:
       'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions.',
     address: {
