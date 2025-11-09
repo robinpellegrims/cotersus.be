@@ -140,7 +140,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${fjalla.variable} ${montserrat.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${fjalla.variable} ${montserrat.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type="application/ld+json"
@@ -159,9 +163,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-white text-gray-900 dark:bg-zinc-800 dark:text-zinc-100 font-inter transition-colors duration-300">
-        <div className="flex min-h-screen flex-col">
-          {children}
-        </div>
+        <div className="flex min-h-screen flex-col">{children}</div>
         <Analytics />
         <SpeedInsights />
       </body>

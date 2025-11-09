@@ -289,7 +289,7 @@ export default async function Index() {
               Featured Projects
             </h2>
             <p className="text-xl text-gray-600 dark:text-zinc-300">
-              A selection of projects we've worked on and helped realize
+              A selection of projects we&apos;ve worked on and helped realize
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
