@@ -3,6 +3,7 @@ import './globals.css';
 import { Fjalla_One, Montserrat, Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Script from 'next/script';
 
 const fjalla = Fjalla_One({
   subsets: ['latin'],
@@ -161,16 +162,17 @@ export default function RootLayout({
             `,
           }}
         />
-        <script
-          src="https://cdn.counter.dev/script.js"
-          data-id="b19ec735-673b-47f5-8575-7d5bc6417ab8"
-          data-utcoffset="1"
-        />
       </head>
       <body className="bg-white text-gray-900 dark:bg-zinc-800 dark:text-zinc-100 font-inter transition-colors duration-300">
         <div className="flex min-h-screen flex-col">{children}</div>
         <Analytics />
         <SpeedInsights />
+        <Script
+          src="https://cdn.counter.dev/script.js"
+          data-id="b19ec735-673b-47f5-8575-7d5bc6417ab8"
+          data-utcoffset="1"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
