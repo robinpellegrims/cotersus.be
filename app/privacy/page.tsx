@@ -102,8 +102,11 @@ export default function PrivacyPage() {
               </p>
               <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-zinc-300">
                 <li>
-                  <strong>Analytics:</strong> We use Vercel Analytics and Speed
-                  Insights for privacy-friendly performance monitoring
+                  <strong>Analytics:</strong> We use privacy-friendly analytics
+                  services including Counter.dev (for visitor statistics), Vercel
+                  Analytics, and Speed Insights for performance monitoring. These
+                  tools collect minimal data and do not use cookies or track
+                  personal information
                 </li>
                 <li>
                   <strong>Theme Preference:</strong> We store your dark/light
