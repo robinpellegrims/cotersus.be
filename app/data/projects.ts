@@ -27,6 +27,18 @@ export const projects: Project[] = [
     year: 2025,
   },
   {
+    image: '/images/projects/zwem-coach-hero.png',
+    alt: 'Zwem Coach platform',
+    role: 'Analysis • Design • Full-stack Development',
+    title: 'Zwem Coach',
+    url: 'https://www.zwem.coach/',
+    description:
+      'Swimming coaching platform offering personalized training programs, technique analysis, and performance tracking for swimmers of all levels.',
+    technologies: ['nextjs', 'typescript', 'tailwindcss', 'stripe'],
+    clients: ['wardPellegrims'],
+    year: 2025,
+  },
+  {
     image: '/images/projects/exceptional-kids-hero.png',
     alt: 'Exceptional Kids Foundation website',
     role: 'Analysis • Design • Full-stack Development',
