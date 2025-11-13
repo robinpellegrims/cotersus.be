@@ -15,18 +15,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    image: '/images/projects/pellegrims-coach-hero.png',
-    alt: 'Ward Pellegrims Coaching platform',
-    role: 'Analysis • Design • Full-stack Development',
-    title: 'Ward Pellegrims Coaching',
-    url: 'https://www.pellegrims.coach/',
-    description:
-      'Professional coaching platform for elite swimming and triathlon athletes with online training programs, technique sessions, and payment integration.',
-    technologies: ['nextjs', 'typescript', 'tailwindcss', 'stripe'],
-    clients: ['wardPellegrims'],
-    year: 2025,
-  },
-  {
     image: '/images/projects/zwem-coach-hero.jpg',
     alt: 'Zwem Coach platform',
     role: 'Analysis • Design • Full-stack Development',
@@ -34,6 +22,18 @@ export const projects: Project[] = [
     url: 'https://www.zwem.coach/',
     description:
       'Learn to swim crawl or improve your technique under expert guidance from Pieter Timmers and Ward Pellegrims.',
+    technologies: ['nextjs', 'typescript', 'tailwindcss', 'stripe'],
+    clients: ['wardPellegrims'],
+    year: 2025,
+  },
+  {
+    image: '/images/projects/pellegrims-coach-hero.png',
+    alt: 'Ward Pellegrims Coaching platform',
+    role: 'Analysis • Design • Full-stack Development',
+    title: 'Ward Pellegrims Coaching',
+    url: 'https://www.pellegrims.coach/',
+    description:
+      'Professional coaching platform for elite swimming and triathlon athletes with online training programs, technique sessions, and payment integration.',
     technologies: ['nextjs', 'typescript', 'tailwindcss', 'stripe'],
     clients: ['wardPellegrims'],
     year: 2025,
