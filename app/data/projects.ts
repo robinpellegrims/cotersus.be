@@ -33,7 +33,7 @@ export const projects: Project[] = [
     title: 'Zwem Coach',
     url: 'https://www.zwem.coach/',
     description:
-      'Swimming coaching platform offering personalized training programs, technique analysis, and performance tracking for swimmers of all levels.',
+      'Learn to swim crawl or improve your technique under expert guidance from Pieter Timmers and Ward Pellegrims.',
     technologies: ['nextjs', 'typescript', 'tailwindcss', 'stripe'],
     clients: ['wardPellegrims'],
     year: 2025,
