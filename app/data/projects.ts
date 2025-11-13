@@ -15,6 +15,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    image: '/images/projects/zwem-coach-hero.jpg',
+    alt: 'Zwem Coach platform',
+    role: 'Analysis • Design • Full-stack Development',
+    title: 'Zwem Coach',
+    url: 'https://www.zwem.coach/',
+    description:
+      'Learn to swim crawl or improve your technique under expert guidance from Pieter Timmers and Ward Pellegrims.',
+    technologies: ['nextjs', 'typescript', 'tailwindcss', 'stripe'],
+    clients: ['wardPellegrims'],
+    year: 2025,
+  },
+  {
     image: '/images/projects/pellegrims-coach-hero.png',
     alt: 'Ward Pellegrims Coaching platform',
     role: 'Analysis • Design • Full-stack Development',
