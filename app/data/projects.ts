@@ -27,7 +27,7 @@ export const projects: Project[] = [
     year: 2025,
   },
   {
-    image: '/images/projects/zwem-coach-hero.png',
+    image: '/images/projects/zwem-coach-hero.jpg',
     alt: 'Zwem Coach platform',
     role: 'Analysis • Design • Full-stack Development',
     title: 'Zwem Coach',
