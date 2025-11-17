@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import logo from '../public/logo.svg';
 import { ThemeToggle } from './components/ThemeToggle';
 import { ProjectCard } from './components/ProjectCard';
@@ -69,12 +70,12 @@ export default async function Index() {
               foundation
             </p>
             <div className="pt-4">
-              <a
-                href="mailto:info@cotersus.be"
+              <Link
+                href="/contact"
                 className="inline-block px-8 py-4 bg-gradient-brand text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
                 Get in Touch
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -328,12 +329,12 @@ export default async function Index() {
                 <p>Beigemsesteenweg 387, 1852 Beigem, Belgium</p>
                 <p>VAT: BE 0791.547.318</p>
                 <p>
-                  <a
-                    href="mailto:info@cotersus.be"
+                  <Link
+                    href="/contact"
                     className="hover:text-brand-orange transition-colors"
                   >
                     info@cotersus.be
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>

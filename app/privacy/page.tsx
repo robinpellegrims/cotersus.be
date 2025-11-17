@@ -225,12 +225,12 @@ export default function PrivacyPage() {
                 </p>
                 <p className="text-gray-600 dark:text-zinc-300 mt-2">
                   Email:{' '}
-                  <a
-                    href="mailto:info@cotersus.be"
+                  <Link
+                    href="/contact"
                     className="text-brand-orange hover:underline"
                   >
                     info@cotersus.be
-                  </a>
+                  </Link>
                 </p>
               </div>
             </section>
