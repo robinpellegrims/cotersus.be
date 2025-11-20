@@ -15,7 +15,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    image: '/images/projects/zwem-coach-hero.jpg',
+    image: '/images/projects/zwem-coach-hero.png',
     alt: 'Zwem Coach platform',
     role: 'Analysis • Design • Full-stack Development',
     title: 'Zwem Coach',
